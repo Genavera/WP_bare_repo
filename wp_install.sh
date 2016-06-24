@@ -70,7 +70,7 @@ case "$1" in
         fi
 
         #-- Swith to the repo
-        echo "-- Acquiring CodeIgniter tags"
+        echo "-- Acquiring Wordpress tags"
         cd $WP_PATH
         $GIT_EXEC fetch --tags
         echo "-- Available tags :"
