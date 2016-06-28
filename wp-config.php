@@ -24,8 +24,13 @@ define('NONCE_SALT',       'put your unique phrase here');
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/WP');
 
-require_once(ABSPATH . 'wp-settings.php');
-
 /** Sets up WordPress vars and included files. */
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/WP-custom' );
-define( 'WP_CONTENT_URL',  get_option('siteurl') . '/WP-custom' );
+
+
+$url = parse_url($_SERVER['REQUEST_URI']);
+define( 'WP_CONTENT_URL',  $url['scheme'] . "://" . $url["host"] . '/WP-custom' );
+
+require_once(ABSPATH . 'wp-settings.php');
+
+
